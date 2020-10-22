@@ -27,7 +27,7 @@ void selection_sort(int *array, size_t size)
 {
 	unsigned int i, j, mindex;
 
-	if (!array || !*array || size < 2)
+	if (!array)
 		return;
 
 	for (i = 0; i < size - 1; i++)
@@ -37,6 +37,7 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[mindex])
 				mindex = j;
 		swap(&array[mindex], &array[i]);
-		print_array(array, size);
+		if (array[mindex] != array[i])
+			print_array(array, size);
 	}
 }
